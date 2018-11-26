@@ -1,0 +1,14 @@
+{
+  "name": "kfa-translator",
+  "version": "1.0.0",
+  "description": "translate English to kfa, the qwerty phonetic alphabet.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Joshua Austill",
+  "license": "MIT",
+  "dependencies": {
+    "node-phony": "^1.3.0"
+  }
+}
