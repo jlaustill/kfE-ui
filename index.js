@@ -28,6 +28,9 @@ const ipaToKfa =(word = '') => {
     word = word.replace(/[e][j]/ig, 'Y');
     word = word.replace(/[ʒ]/ig, 'Z');
 
+    word = word.replace(/[ˈ]/ig, '');
+    word = word.replace(/[ˌ]/ig, '');
+
     return word;
 };
 
@@ -47,135 +50,96 @@ let result = "";
 let build = false;
 
 const toTrans = `
-Cracks split the asphalt, a myriad of concrete rivers that are a map to home, anywhere and nowhere. My toes are burning cold and numb, my ass too. Alleys are one of the few places people might actually leave you alone, but they’re somehow always wet. Wet with snow, wet from storm drains, wet with dumpster leakage, and no matter how many layers you wear, eventually it seeps through and sinks its rotten breath into your flesh.
-
-I plunge into my pocket for the half sandwich I saved from yesterday, but my fingers find only lumps of thread and lint. I reach for my other pocket, tracing every edge of the lining in toiling denial. I check the pockets in the sweatpants under my jeans, empty. My coat, empty. I grunt as I shift my weight from my frozen, sleeping rear. My hand lands in a puddle of rot, and I shake it off as I stand. I look down the alley, willing the sandwich to show itself, but it isn’t there.
-
-“Shit,” I mutter. My stomach rolls and pulls like it’s mad at me. “I know!” I yell at it.
-
-“Are you okay?” a small voice says from behind me. I spin. The kid’s hair looks like a big electrified tangle, like someone gathered grass and twigs and steel wool and put it on his head, like a fixture sewn into his scalp but not growing. His pants are too long for him by a foot, and the extra fabric is dark and soaked from dragging under his feet.
-
-“I lost my sandwich,” I say. “Must’ve fallen out of my pocket.”
-
-“Can you get another one?”
-
-“No.”
-
-“I can show you something,” he says. “Come on.”
-
-He starts walking away, then checks over his shoulder for me. His face is stained with splashes of black slush from city streets, but it makes his smile flash like diamonds. I gather my blankets, drape them over my shoulder, and follow him. Maybe he has an arrangement with a bagel shop or something. A lot of the guys do. He notices my limp and slows down.
-
-“What happened to you?”
-
-“Just old, kid.”
-
-He nods and leads me to the closest fast food joint. He opens the door and gets in line.
-
-“I don’t have any money,” I say.
-
-“Me either.”
-
-I can tell I stink from the people trying to sneak glances over cold shoulders. The employees are already eyeing us when we’re still three back in line. They’re all uncomfortable. They don’t want to see this kind of life, not up close and dripping in the lobby.
-
-The kid falls into a fit of sneezes, one right after the other, controlled puffs of air giving way to a loud, full-body sneeze that bends him over. He wipes his nose on his sleeve and looks ahead like nothing happened. They’re all looking at me like this kid is mine, like I’ve done something horrible to him.
-
-“Can we just get two cups of hot water?” the kid asks.
-
-The cashier is a young girl, too young to fathom the sacrifice of dignity that occurs when walking into a business covered in rat shit and putrid fruit juices. I’m waiting for her to turn us away. I’m certain she will, but her eyes linger on the boy and she nods.
-
-“Sure, hun.”
-
-The kid smiles like she just adopted him. He takes the steaming Styrofoam cups from the counter and hands one to me.
-
-“Here,” he says with a big, dopey, diamond grin.
-
-“Water?”
-
-“That’s not all, don’t drink it yet.”
-
-He makes his way to the condiments and shoves his hand into the ketchup packets, trying for more than his fingers can jail. He shoves them into his pocket and follows with another massive scoop. He nearly cleans them out of ketchup. He’s more modest with the salt and pepper, taking only a quarter of the stock of those. Last, he grabs two spoons and nods at the door.
-
-“Let’s go.”
-
-I try to keep up with the bubbly scamp, but my limp and a full cup of steaming water go together like orange juice and toothpaste. When I get to the alley, he’s on the ground with his legs locked in a V, his cup of water between them.
-
-“Come on,” he says, like I’m about to miss him turning water to wine. He looks at me like he can’t wait for me and I’ll miss it, and somehow the kid convinces me to hurry enough that I spill a little of the water on my frozen fingers. The burn strikes me like a hissing tongue. I sit, set the cup between my legs, and look at him. His big brown eyes are specked with hazel and wonder. He hands me a fistful of ketchup packets, then starts tearing his own open with his teeth. When he has five open, he stacks them together and squeezes them over the water, then starts over.
-
-“Go on,” he says to me. “It doesn’t work right if the water gets cold.”
-
-I can’t remember the last time I smiled. It feels like my face is tugging under a mask of plastic wrap when the urge strikes me. I start squeezing ketchup packets into the water. The ketchup falls to the bottom in blobs, but I don’t say anything, just keep squeezing.
-
-“Now these.” The boy holds out salt and pepper. I dump them in too. He hands me a spoon and we both hunch over our cups and start to stir. The ketchup doesn’t want to break up at first. It just swirls in a disgusting blob, but I keep going, and eventually it starts to tear apart and break down until finally the whole mix is the pale color between orange and red. When the kid is happy with his mix he sits upright again. He stares at me expectantly.
-
-“Now what?” I ask.
-
-“That’s it.”
-
-“That’s it?”
-
-“It’s tomato soup,” he says.
-
-I look down at the sweating Styrofoam, then glance at him. His face betrays hopeful anticipation. It’s like he’s presenting a crude clay handprint for my birthday and the whole of time hangs on whether I crush him or see him. I lean over the cup and smell. Ketchup water steams into my nose, but I somehow feel tomato soup inside. I scoop with the spoon and have a taste.
-
-“Well, I’ll be damned,” I say. “That’s tomato soup, all right.”
-
-The kid lights up and pops the spoon into his mouth.
-
-“You figure that out yourself?” I ask.
-
-“Yeah. I like it when I’m sick.” He wipes snot on his sleeve.
-
-“You’re sick now,” I say. “You figured it out today?”
-
-“No,” he shakes his head. “I’m sick a lot.”
-
-I take another look at him. The moisture is deepening the color of his jeans and creeping up the sides of his legs now, spidery fingers trying to spin a web around him.
-
-“That’s probably because you’re always cold,” I say. “You have someplace to stay? Inside?”
-
-“No.”
-
-“You have a sleeping bag, though? Blankets?”
-
-He looks over and shakes his head again.
-
-“Jeez, kid. Follow me.”
-
-We creak to a stand, fighting the stiffness of the air. I take him down the alley until we’re at my favorite place to sleep. There’s a large metal box protruding from the back of the brick building emitting steam.
-
-“Go on,” I say. “Get close to that.”
-
-He glances at me, then steps closer to the box. He closes his eyes as the warm steam hits his face. His mouth breaks into a smile.
-
-“It smells so good,” he says.
-
-“Smells like laundry,” I say. “It’s a dry cleaner.”
-
-He holds his hands in front of it. “It’s amazing.”
-
-I lean over and pull back the piece of plywood I use to keep my spot out of sight. It’s a nook between the dumpster and the wall.
-
-“That’s a good place to sleep,” I say. “Stinks, but you get used to it. And it stays pretty warm.”
-
-“Cool.”
-
-“You can have it.”
-
-He snaps to attention, his eyes ricocheting between the nook and my face.
-
-“You mean it?”
-
-“Sure,” I say. “This too.” I pull one of the blankets from my shoulder and hand it to him.
-
-“What about you?”
-
-I hold up the Styrofoam cup. “I have tomato soup to keep me warm until I find a new spot.” I tap my cup into his to toast him. He lights up and wraps the blanket around his shoulders.
-
-“See you around, kid.”
+Look
+If you had
+One shot
+Or one opportunity
+To seize everything you ever wanted
+In one moment
+Would you capture it
+Or just let it slip?
+Yo
+His palms are sweaty, knees weak, arms are heavy
+There's vomit on his sweater already, mom's spaghetti
+He's nervous, but on the surface he looks calm and ready
+To drop bombs, but he keeps on forgettin'
+What he wrote down, the whole crowd goes so loud
+He opens his mouth, but the words won't come out
+He's chokin', how, everybody's jokin' now
+The clocks run out, times up, over, blaow!
+Snap back to reality, oh there goes gravity
+Oh, there goes Rabbit, he choked
+He's so mad, but he won't give up that easy? No
+He won't have it, he knows his whole back city's ropes
+It don't matter, he's dope, he knows that, but he's broke
+He's so stacked that he knows, when he goes back to his mobile home, that's when its
+Back to the lab again yo, this whole rhapsody
+He better go capture this moment and hope it don't pass him
+You better lose yourself in the music, the moment
+You own it, you better never let it go
+You only get one shot, do not miss your chance to blow
+This opportunity comes once in a lifetime you better
+You better lose yourself in the music, the moment
+You own it, you better never let it go
+You only get one shot, do not miss your chance to blow
+This opportunity comes once in a lifetime you better
+The souls escaping, through this hole that its gaping
+This world is mine for the taking
+Make me king, as we move toward a, new world order
+A normal life is borin', but super stardom's close to post mortar
+It only grows harder, only grows hotter
+He blows us all over these hoes is all on him
+Coast to coast shows, he's known as the globetrotter
+Lonely roads, God only knows, he's grown farther from home, he's no father
+He goes home and barely knows his own daughter
+But hold your nose 'cause here goes the cold water
+His hoes don't want him no mo', he's cold product
+They moved on to the next schmo who flows, he nose dove and sold nada
+So the soap opera is told and unfolds, I suppose it's old partna, but the beat goes on
+Da da dumb da dumb da da
+You better lose yourself in the music, the moment
+You own it, you better never let it go
+You only get one shot, do not miss your chance to blow
+This opportunity comes once in a lifetime you better
+You better lose yourself in the music, the moment
+You own it, you better never let it go
+You only get one shot, do not miss your chance to blow
+This opportunity comes once in a lifetime you better
+No more games, I'm a change what you call rage
+Tear this motherfuckin' roof off like two dogs caged
+I was playin' in the beginnin', the mood all changed
+I been chewed up and spit out and booed off stage
+But I kept rhymin' and stepwritin' the next cipher
+Best believe somebody's payin' the pied piper
+All the pain inside amplified by the
+Fact that I can't get by with my nine to
+Five and I can't provide the right type of
+Life for my family 'cause man, these God damn food stamps don't buy diapers
+And its no movie, there's no Mekhi Phifer
+This is my life and these times are so hard
+And it's getting even harder tryin' to feed and water my seed, plus
+See dishonor caught up between bein' a father and a prima-donna
+Baby mama drama screamin' on and too much
+For me to want to say in one spot, another jam or not
+Has gotten me to the point, I'm like a snail I've got
+To formulate a plot fore I end up in jail or shot
+Success is my only motherfuckin' option, failures not
+Mom, I love you, but this trail has got to go, I cannot grow old in Salem's lot
+So here I go is my shot
+Feet fail me not 'cause maybe the only opportunity that I got
+You better lose yourself in the music, the moment
+You own it, you better never let it go
+You only get one shot, do not miss your chance to blow
+This opportunity comes once in a lifetime you better
+You better lose yourself in the music, the moment
+You own it, you better never let it go
+You only get one shot, do not miss your chance to blow
+This opportunity comes once in a lifetime you better
+You can do anything you set your mind to, man
 `;
 for (let i = 0; i < toTrans.length; i++) {
     // console.log(toTrans[i]);
-    if (toTrans[i].match(/[a-zA-Z]/)) {
+    if (toTrans[i].match(/[a-zA-Z']/)) {
         word += toTrans[i];
     } else {
         if (word) {
