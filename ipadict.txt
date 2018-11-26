@@ -6784,7 +6784,7 @@ auster			ɔˈstɚ
 austere		ɔstɪˈɹ
 austerely		ɔˌstɪˈɹli
 austerity		ɔˌstɛˈɹɪti
-austill		awˈstʌl
+austill		aˈstɪl
 austin			ɔˈstʌn
 austin's		ɔˈstʌnz
 austine		ɔˈstin
@@ -61494,6 +61494,7 @@ jemmie			ʤɛˈmi
 jemmott		ʤɛˈmʌt
 jen			ʤɛˈn
 jena			ʤiˈnʌ
+Jenasee         ʤɛˈnʌsi
 jencks			ʤɛˈŋks
 jendro			ʤɛˈndɹow
 jenin			ʤɛˈnɪn
