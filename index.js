@@ -1,11 +1,13 @@
 const fs = require('fs');
 const input = fs.readFileSync('./ipadict.txt', 'utf8');
+const express = require('express');
+const cors = require('cors');
 
 // console.log(input.split('\n'));
 
 const dict = [];
 
-const ipaToKfa =(word = '') => {
+const ipaToKfa = (word = '') => {
     word = word.replace(/[ɑ]/ig, 'a');
     word = word.replace(/[ʌ]/ig, 'A');
     word = word.replace(/[ʧ]/ig, 'c');
@@ -44,73 +46,43 @@ input.split('\n').forEach(line => {
     });
 });
 
-// console.log(dict.find(w => w.english === 'vision'));
 
-let word = "";
-let result = "";
+const toTrans2 = `you`;
 
-const toTrans = `
-All my friends are heathens, take it slow
-Wait for them to ask you who you know
-Please don't make any sudden moves
-You don't know the half of the abuse
-All my friends are heathens, take it slow
-Wait for them to ask you who you know
-Please don't make any sudden moves
-You don't know the half of the abuse
-Welcome to the room of people
-Who have rooms of people that they loved one day
-Docked away
-Just because we check the guns at the door
-Doesn't mean our brains will change from hand grenades
-You're lovin' on the psychopath sitting next to you
-You're lovin' on the murderer sitting next to you
-You'll think, "How'd I get here, sitting next to you?"
-But after all I've said, please don't forget
-All my friends are heathens, take it slow
-Wait for them to ask you who you know
-Please don't make any sudden moves
-You don't know the half of the abuse
-We don't deal with outsiders very well
-They say newcomers have a certain smell
-Yeah, I trust issues, not to mention
-They say they can smell your intentions
-You're lovin' on the freakshow sitting next to you
-You'll have some weird people sitting next to you
-You'll think "How did I get here, sitting next to you?"
-But after all I've said, please don't forget
-(Watch it, watch it)
-All my friends are heathens, take it slow
-Wait for them to ask you who you know
-Please don't make any sudden moves
-You don't know the half of the abuse
-All my friends are heathens, take it slow
-(Watch it)
-Wait for them to ask you who you know
-(Watch it)
-All my friends are heathens, take it slow
-(Watch it)
-Wait for them to ask you who you know
-(Watch it)
-Why'd you come, you knew you should have stayed
-(It's blasphemy)
-I tried to warn you just to stay away
-And now they're outside ready to bust
-It looks like you might be one of us
+function englishToKfa(toTrans) {
+  let word = "";
+  let result = "";
 
-`;
-for (let i = 0; i < toTrans.length; i++) {
+  for (let i = 0; i < toTrans.length; i++) {
     // console.log(toTrans[i]);
     if (toTrans[i].match(/[a-zA-Z']/)) {
-        word += toTrans[i];
+      word += toTrans[i];
     } else {
-        if (word) {
-            const kfa = dict.find(w => w.english.toLowerCase() === word.toLowerCase());
-            result += kfa ? kfa.kfa : word;
-        }
-        word = "";
-        result += toTrans[i];
+      if (word) {
+        const kfa = dict.find(w => w.english.toLowerCase() === word.toLowerCase());
+        result += kfa ? kfa.kfa : word;
+      }
+      word = "";
+      result += toTrans[i];
     }
+  }
+
+  if (word) {
+    result += word;
+  }
+
+  return result;
 }
 
-console.log(result);
+console.log(englishToKfa(toTrans2));
+
+const app = express();
+app.use(cors());
+
+app.get('/translate', function(req, res) {
+  res.send({ kfa: englishToKfa(req.query.english || '') });
+});
+
+app.listen('8080', () => {
+  console.log('Server listening on post 8080');
+});
