@@ -3,8 +3,6 @@ const input = fs.readFileSync('./ipadict.txt', 'utf8');
 const express = require('express');
 const cors = require('cors');
 
-// console.log(input.split('\n'));
-
 const dict = [];
 
 const ipaToKfa = (word = '') => {
@@ -46,15 +44,12 @@ input.split('\n').forEach(line => {
     });
 });
 
-
-const toTrans2 = `you`;
-
-function englishToKfa(toTrans) {
+function englishToKfa(_toTrans) {
+  const toTrans = ` ${_toTrans} `;
   let word = "";
   let result = "";
 
   for (let i = 0; i < toTrans.length; i++) {
-    // console.log(toTrans[i]);
     if (toTrans[i].match(/[a-zA-Z']/)) {
       word += toTrans[i];
     } else {
@@ -67,20 +62,18 @@ function englishToKfa(toTrans) {
     }
   }
 
-  if (word) {
-    result += word;
-  }
-
-  return result;
+  return result.trim();
 }
-
-console.log(englishToKfa(toTrans2));
 
 const app = express();
 app.use(cors());
 
 app.get('/translate', function(req, res) {
-  res.send({ kfa: englishToKfa(req.query.english || '') });
+  const { english } = req.query;
+  res.send({
+    kfa: englishToKfa(english || ''),
+    english,
+  });
 });
 
 app.listen('8080', () => {
