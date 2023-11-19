@@ -1,12 +1,12 @@
 # kfa-trEnslYtX
 I created a phonetic alphabet for the fun of it, and went ahead and wrote a translator for english.  It's not robust or fancy, but it was sure fun!
 
-y kriYtAd A fAnetIk ElfAbet fCr TA fAn Av It, And went Ahed And rot A trEnslYtX fCr INglIS. Its nat robAst Cr fEnsi, bAt It waz SUr fAn!
+AE krieEtud u funetik alfubet fAr Tu fun uv it, und went uhed und roUt u transleEtR fAr iNgliS. its not roUbust Ar fansi, but it woz SOr fun!
 
 The idea was to use only qwerty characters that exist on every keyboard already, which required doing some odd character choices, but I think I figured out a pretty decent result.
 
-TA ydiA waz tu jus onli qwerty kErIktXz TEt IgzIst an evXi kibCrd Clredi, wIc rikwyXd duIN sAm ad kerIktX cQsAz, bAt y HINk y fIgjXd Ot A prIti disAnt rIzAlt.
+Tu AEdiu woz tU jUs oUnli qwerty kariktRz Tat igzist on evRi kibArd Alredi, wic rikwAERd dUiN sum od keriktR cuUEsuz, but AE HiNk AE figjRd AUt u priti disunt rizult.
 
 It works by first converting to IPA, then swapping characters.
 
-It wXks by fXst kAnvXtIN tu IPA, Ten swapIN kErIktXz.
+it wRks bAE fRst kunvRtiN tU IPA, Ten swopiN kariktRz.
